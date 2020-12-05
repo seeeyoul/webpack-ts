@@ -1,12 +1,21 @@
 const path = require('path');
 const config = require('./config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HappyPack = require('happypack');
+const WebpackBar = require('webpackbar');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+class Reporter {
+	done(context) {
+		if(config.isDev) {
+			console.clear();
+			console.log(`启动成功: ${config.SERVER_HOST}:${config.SERVER_PORT}`);
+		}
+	}
+}
 
 module.exports = {
 	entry: path.resolve(__dirname, "../src/index.tsx"),
@@ -31,7 +40,13 @@ module.exports = {
 			typescript: {
 				configFile: path.resolve(__dirname, '../tsconfig.json')
 			}
-		})
+		}),
+		new WebpackBar({
+			name: config.isDev ? "正在启动" : "正在打包",
+			color: "#ef5386",
+			reporter: new Reporter()
+		}),
+		new HardSourceWebpackPlugin(),
 	],
 	module: {
 		rules: [
