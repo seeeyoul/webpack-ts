@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const config = require('./config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +10,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 class Reporter {
-	done(context) {
+	done() {
 		if(config.isDev) {
 			console.clear();
 			console.log(`启动成功: ${config.SERVER_HOST}:${config.SERVER_PORT}`);
@@ -18,15 +19,15 @@ class Reporter {
 }
 
 module.exports = {
-	entry: path.resolve(__dirname, "../src/index.tsx"),
+	entry: path.resolve(__dirname, '../src/index.tsx'),
 	output: {
-		filename: "bundle.[hash:8].js",
-		path: path.join(__dirname, "../dist")
+		filename: 'bundle.[hash:8].js',
+		path: path.join(__dirname, '../dist')
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '../public/index.html'),
-			filename: "index.html",
+			filename: 'index.html',
 			title: config.PROJECT_NAME,
 			cache: false
 		}),
@@ -42,8 +43,8 @@ module.exports = {
 			}
 		}),
 		new WebpackBar({
-			name: config.isDev ? "正在启动" : "正在打包",
-			color: "#ef5386",
+			name: config.isDev ? '正在启动' : '正在打包',
+			color: '#ef5386',
 			reporter: new Reporter()
 		}),
 		new HardSourceWebpackPlugin(),
@@ -52,7 +53,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'postcss-loader', 'css-loader'],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.(scss|sass)$/,
@@ -61,7 +62,7 @@ module.exports = {
 					'css-loader',
 					'postcss-loader',
 					{
-						loader: "sass-loader",
+						loader: 'sass-loader',
 						options: {
 							sourceMap: config.isDev
 						}

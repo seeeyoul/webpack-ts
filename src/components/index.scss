@@ -1,0 +1,30 @@
+.header {
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	font-size: 4rem;
+	color: #87c082de;
+	font-weight: 300;
+  font-family: 'Josefin Sans';
+}
+
+.icons {
+	margin-right: 20px;
+}
+
+.navs {
+	margin-left: 40px;
+	font-size: 16px;
+	line-height: 79px;
+	border-top: 2px solid transparent;
+}
+
+.navs:hover {
+	color: #87c082de;
+	border-top: 2px solid #87c082de;
+}
+
+.rightBar_avatar {
+	width: 60%;
+	height: 60%;
+}

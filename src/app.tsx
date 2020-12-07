@@ -1,16 +1,19 @@
-import React from "react";
+import React from 'react';
+import { Switch } from 'react-router-dom';
+import renderRoutes from './components/router';
+import { routes } from './routes';
+import 'antd/dist/antd.css';
 
-interface IProps {
-	name: string;
-	age: number;
-}
+const authed = false;
+const authPath = '/login';
 
-function App(props: IProps) {
-	const { name, age } = props;
+const App = () => {
 	return (
-		<div>
-			<span>{`${name} + ${age}`}</span>
-		</div>
+			<Switch>
+				{
+					renderRoutes(routes, authed, authPath)
+				}
+			</Switch>
 	)
 }
 

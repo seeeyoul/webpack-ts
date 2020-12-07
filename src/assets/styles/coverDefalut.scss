@@ -1,0 +1,45 @@
+.at-input{
+  color: #353535;
+  padding: 36px 0;
+  margin-left: 0;
+}
+
+.at-input::after{
+  border-bottom: 1px solid #cccccc;
+}
+
+.at-input__title {
+  width: auto;
+  color: #666666;
+}
+
+.at-search-bar::after{
+  border: none;
+}
+
+.at-search-bar__action{
+  background-color: #499b85;
+}
+
+.at-tabs__header{
+  width: 308px;
+}
+
+.at-tabs__item{
+  padding: 24px 0;
+  color: #888888;
+}
+
+.at-tabs__item--active{
+  color: #499b85;
+}
+
+.at-tabs__underline{
+  display: none;
+}
+
+.at-tabs__item-underline{
+  background-color: #499b85;
+  height: 4px;
+  border-radius: 4px;
+}

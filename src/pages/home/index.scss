@@ -1,0 +1,61 @@
+.navBar {
+	border: 1px solid #ededed;
+}
+
+.banner {
+	height: 600px;
+	background: url('../../assets/images/1.jpg') no-repeat;
+	background-size: cover;
+}
+
+.banner_text{
+	width: 32rem;
+	font-size: 3.25rem;
+	font-family: Josefin Sans;
+	color: #fff;
+	white-space: nowrap;
+	overflow: hidden;
+	animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 32rem;
+	}
+}
+
+@keyframes blink-caret {
+  from, to { box-shadow: 1px 0 0 0 transparent; }
+  50% { box-shadow: 1px 0 0 0; }
+}
+
+.hotList_type {
+	color: #87c082de;
+  font-family: Josefin Sans;
+  font-weight: 600;
+	font-size: 14px;
+	line-height: 32px;
+}
+
+.hotList_title {
+	font-size: 18px;
+	line-height: 28px;
+	color: #666;
+	font-weight: 600;
+	letter-spacing: 2;
+}
+
+.hotList_info {
+	color: #666;
+	height: 108px;
+	line-height: 27px;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.hotList_wrap:hover{
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .09);
+}
